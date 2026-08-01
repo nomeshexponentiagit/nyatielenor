@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Nyati Elenor</title>
+  <meta name="description" content="Thank you for your interest in Nyati Elenor. Our team will contact you shortly.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F766E',
+            'primary-dark': '#0C5E58',
+            gold: '#C9A84C',
+            'gold-light': '#E8D5A3',
+            dark: '#0F172A',
+          },
+          fontFamily: {
+            heading: ['Cinzel', 'serif'],
+            body: ['Josefin Sans', 'sans-serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.8s ease-out forwards',
+            'slide-up': 'slideUp 0.8s ease-out forwards',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    .text-gradient {
+      background: linear-gradient(135deg, #C9A84C 0%, #E8D5A3 50%, #C9A84C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #C9A84C 0%, #B8942E 100%);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(201, 168, 76, 0.3);
+    }
+    @keyframes checkmark {
+      0% { stroke-dashoffset: 50; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .checkmark-circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      animation: checkmark 0.6s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-dark min-h-screen flex items-center justify-center font-body p-4">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-20 left-10 w-3 h-3 bg-gold/30 rounded-full animate-float"></div>
+    <div class="absolute top-40 right-20 w-2 h-2 bg-primary/30 rounded-full animate-float" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-40 left-1/4 w-4 h-4 bg-gold/20 rounded-full animate-float" style="animation-delay: 4s;"></div>
+    <div class="absolute bottom-20 right-10 w-2 h-2 bg-primary/40 rounded-full animate-float" style="animation-delay: 1s;"></div>
+  </div>
+
+  <div class="relative z-10 max-w-lg w-full">
+    <div class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 sm:p-12 text-center animate-fade-in">
+      <!-- Success Icon -->
+      <div class="mb-8 animate-slide-up">
+        <svg class="w-24 h-24 mx-auto" viewBox="0 0 52 52">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none" stroke="#22c55e" stroke-width="2"/>
+          <path class="checkmark-circle" fill="none" stroke="#22c55e" stroke-width="2" d="M14 27l7 7 16-16"/>
+        </svg>
+      </div>
+
+      <!-- Content -->
+      <div class="animate-slide-up" style="animation-delay: 0.3s;">
+        <h1 class="font-heading font-bold text-3xl sm:text-4xl text-white mb-3">
+          Thank <span class="text-gradient">You!</span>
+        </h1>
+        <p class="text-white/60 text-base sm:text-lg mb-2">
+          Your enquiry has been received.
+        </p>
+        <p class="text-white/40 text-sm mb-8">
+          Our sales team will contact you within 24 hours to schedule your exclusive site visit at Nyati Elenor, Lulla Nagar.
+        </p>
+      </div>
+
+      <!-- Project Summary Card -->
+      <div class="bg-white/5 rounded-2xl p-6 mb-8 animate-slide-up" style="animation-delay: 0.5s;">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center">
+            <span class="text-white font-heading font-bold text-lg">NE</span>
+          </div>
+          <div class="text-left">
+            <p class="font-heading font-bold text-white text-sm">Nyati Elenor</p>
+            <p class="text-white/40 text-xs">The Handcrafted Life</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-2 text-center">
+          <div class="bg-white/5 rounded-lg py-2">
+            <p class="text-gold-light font-heading font-bold text-lg">3.5</p>
+            <p class="text-white/30 text-xs">BHK</p>
+          </div>
+          <div class="bg-white/5 rounded-lg py-2">
+            <p class="text-gold-light font-heading font-bold text-lg">4.5</p>
+            <p class="text-white/30 text-xs">BHK</p>
+          </div>
+          <div class="bg-white/5 rounded-lg py-2">
+            <p class="text-gold-light font-heading font-bold text-lg">5.5</p>
+            <p class="text-white/30 text-xs">BHK</p>
+          </div>
+        </div>
+        <p class="text-white/50 text-xs mt-4">₹4.80 Cr* onwards | RERA: P52100078873</p>
+      </div>
+
+      <!-- What happens next -->
+      <div class="space-y-3 mb-8 animate-slide-up" style="animation-delay: 0.7s;">
+        <div class="flex items-center gap-3 text-left">
+          <div class="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-green-400 font-bold text-sm">1</span>
+          </div>
+          <p class="text-white/60 text-sm">Our team will call you at your provided number</p>
+        </div>
+        <div class="flex items-center gap-3 text-left">
+          <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-primary-light font-bold text-sm">2</span>
+          </div>
+          <p class="text-white/60 text-sm">We'll schedule an exclusive site visit at your convenience</p>
+        </div>
+        <div class="flex items-center gap-3 text-left">
+          <div class="w-8 h-8 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-gold font-bold text-sm">3</span>
+          </div>
+          <p class="text-white/60 text-sm">Experience the handcrafted life at Nyati Elenor firsthand</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="space-y-3 animate-slide-up" style="animation-delay: 0.9s;">
+        <a href="/" class="btn-gold block text-white px-8 py-4 rounded-full font-semibold text-base transition-all duration-300">
+          Back to Nyati Elenor
+        </a>
+        <a href="tel:+918956419999" class="flex items-center justify-center gap-2 text-white/50 hover:text-gold transition-colors text-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Need immediate help? Call +91 89564 19999
+        </a>
+      </div>
+    </div>
+
+    <p class="text-center text-white/20 text-xs mt-8">
+      © 2024 Nyati Group. All rights reserved. Artist's impressions for representation only.
+    </p>
+  </div>
+</body>
+</html>
