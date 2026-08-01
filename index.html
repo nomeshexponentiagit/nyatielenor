@@ -16,7 +16,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -39,17 +39,26 @@
             dark: '#0F172A',
           },
           fontFamily: {
-            heading: ['Cinzel', 'serif'],
-            body: ['Josefin Sans', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
           },
           animation: {
             'fade-in': 'fadeIn 0.8s ease-out forwards',
             'slide-up': 'slideUp 0.8s ease-out forwards',
+            'slide-down': 'slideDown 0.8s ease-out forwards',
             'slide-right': 'slideRight 0.8s ease-out forwards',
+            'slide-left': 'slideLeft 0.8s ease-out forwards',
             'float': 'float 6s ease-in-out infinite',
+            'float-slow': 'float 8s ease-in-out infinite',
             'pulse-gold': 'pulseGold 2s ease-in-out infinite',
+            'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
             'shimmer': 'shimmer 2s linear infinite',
             'scale-in': 'scaleIn 0.5s ease-out forwards',
+            'bounce-in': 'bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards',
+            'rotate-slow': 'rotateSlow 20s linear infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+            'ken-burns': 'kenBurns 20s ease-in-out infinite alternate',
+            'reveal': 'reveal 1s ease-out forwards',
           },
           keyframes: {
             fadeIn: {
@@ -57,16 +66,28 @@
               '100%': { opacity: '1' },
             },
             slideUp: {
-              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '0%': { opacity: '0', transform: 'translateY(40px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            slideDown: {
+              '0%': { opacity: '0', transform: 'translateY(-40px)' },
               '100%': { opacity: '1', transform: 'translateY(0)' },
             },
             slideRight: {
-              '0%': { opacity: '0', transform: 'translateX(-30px)' },
+              '0%': { opacity: '0', transform: 'translateX(-40px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            },
+            slideLeft: {
+              '0%': { opacity: '0', transform: 'translateX(40px)' },
               '100%': { opacity: '1', transform: 'translateX(0)' },
             },
             float: {
               '0%, 100%': { transform: 'translateY(0px)' },
               '50%': { transform: 'translateY(-20px)' },
+            },
+            pulseSoft: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.7' },
             },
             pulseGold: {
               '0%, 100%': { boxShadow: '0 0 0 0 rgba(201, 168, 76, 0.4)' },
@@ -77,8 +98,30 @@
               '100%': { backgroundPosition: '200% 0' },
             },
             scaleIn: {
-              '0%': { opacity: '0', transform: 'scale(0.9)' },
+              '0%': { opacity: '0', transform: 'scale(0.85)' },
               '100%': { opacity: '1', transform: 'scale(1)' },
+            },
+            bounceIn: {
+              '0%': { opacity: '0', transform: 'scale(0.3)' },
+              '50%': { transform: 'scale(1.05)' },
+              '70%': { transform: 'scale(0.95)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
+            },
+            rotateSlow: {
+              '0%': { transform: 'rotate(0deg)' },
+              '100%': { transform: 'rotate(360deg)' },
+            },
+            glow: {
+              '0%': { boxShadow: '0 0 20px rgba(201,168,76,0.2), 0 0 60px rgba(201,168,76,0.1)' },
+              '100%': { boxShadow: '0 0 40px rgba(201,168,76,0.4), 0 0 100px rgba(201,168,76,0.2)' },
+            },
+            kenBurns: {
+              '0%': { transform: 'scale(1) translate(0, 0)' },
+              '100%': { transform: 'scale(1.1) translate(-2%, -1%)' },
+            },
+            reveal: {
+              '0%': { opacity: '0', transform: 'translateY(60px)', filter: 'blur(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
             },
           },
         }
@@ -334,8 +377,9 @@
       <img
         src="https://nyatigroup.com/images/projects/Elenor/banner-img.jpg"
         alt="Nyati Elenor Luxury Residences"
-        class="w-full h-full object-cover scale-110"
+        class="w-full h-full object-cover animate-ken-burns will-change-transform"
         loading="eager"
+        fetchpriority="high"
       >
     </div>
     <!-- Overlay -->
@@ -516,23 +560,23 @@
   <!-- ===== USP STATS BAR ===== -->
   <section class="relative -mt-1 bg-gradient-to-r from-primary-dark via-primary to-primary-dark py-10 lg:py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-        <div class="space-y-2">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center" data-reveal>
+        <div class="space-y-2" data-stagger>
           <p class="text-gold-light font-heading font-bold text-3xl lg:text-4xl counter" data-target="2">2</p>
           <p class="text-white/70 text-sm font-medium">Magnificent Towers</p>
           <p class="text-white/40 text-xs">B+G+32 Storeys</p>
         </div>
-        <div class="space-y-2">
+        <div class="space-y-2" data-stagger>
           <p class="text-gold-light font-heading font-bold text-3xl lg:text-4xl">2.5</p>
           <p class="text-white/70 text-sm font-medium">Acres of Land</p>
           <p class="text-white/40 text-xs">Premium Gated Community</p>
         </div>
-        <div class="space-y-2">
+        <div class="space-y-2" data-stagger>
           <p class="text-gold-light font-heading font-bold text-3xl lg:text-4xl">46+</p>
           <p class="text-white/70 text-sm font-medium">World-Class Amenities</p>
           <p class="text-white/40 text-xs">Curated Lifestyle</p>
         </div>
-        <div class="space-y-2">
+        <div class="space-y-2" data-stagger>
           <p class="text-gold-light font-heading font-bold text-3xl lg:text-4xl counter" data-target="1798">1,798</p>
           <p class="text-white/70 text-sm font-medium">Sq. Ft. Starting Size</p>
           <p class="text-white/40 text-xs">Up to 2,757 sq.ft</p>
@@ -640,7 +684,7 @@
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16" data-reveal>
         <p class="text-gold font-heading text-sm tracking-[0.2em] uppercase mb-3">Indulge in</p>
         <h2 class="font-heading font-bold text-3xl lg:text-5xl text-white mb-4">
           Signature <span class="text-gradient">Amenities</span>
@@ -649,7 +693,7 @@
       </div>
 
       <!-- Featured Amenities Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" data-reveal>
         <!-- Floating Gym -->
         <div class="glass-card-dark rounded-2xl overflow-hidden group hover:border-gold/30 transition-all duration-500">
           <div class="relative h-56 overflow-hidden">
@@ -703,7 +747,7 @@
       </div>
 
       <!-- Amenity Categories -->
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-3 gap-8" data-reveal>
         <!-- Zone 1 -->
         <div class="glass-card-dark rounded-2xl p-6 lg:p-8 backdrop-blur-xl">
           <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-5">
@@ -792,14 +836,14 @@
   <!-- ===== GALLERY SECTION ===== -->
   <section id="gallery" class="py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16" data-reveal>
         <p class="text-primary font-heading text-sm tracking-[0.2em] uppercase mb-3">Visual Tour</p>
         <h2 class="font-heading font-bold text-3xl lg:text-5xl text-dark mb-4">
           A Glimpse of <span class="text-gradient-teal">Elenor</span>
         </h2>
       </div>
 
-      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6" data-reveal>
         <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden group relative">
           <img
             src="https://nyatigroup.com/images/projects/Elenor/outdoor-gallery/multi-purpose-deck.jpg"
@@ -879,7 +923,7 @@
   <!-- ===== FLOOR PLANS SECTION ===== -->
   <section id="plans" class="py-20 lg:py-28 bg-cream">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16" data-reveal>
         <p class="text-primary font-heading text-sm tracking-[0.2em] uppercase mb-3">Residences</p>
         <h2 class="font-heading font-bold text-3xl lg:text-5xl text-dark mb-4">
           Floor <span class="text-gradient-teal">Configurations</span>
@@ -887,7 +931,7 @@
         <p class="text-gray-500 max-w-xl mx-auto">Expansive homes designed for gracious living — every square foot thoughtfully utilized.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 lg:gap-8 mb-12">
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8 mb-12" data-reveal>
         <!-- 3.5 BHK -->
         <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group hover:-translate-y-1">
           <div class="text-center">
@@ -1056,14 +1100,14 @@
   <!-- ===== WHY NYATI ===== -->
   <section class="py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16" data-reveal>
         <p class="text-primary font-heading text-sm tracking-[0.2em] uppercase mb-3">The Builder</p>
         <h2 class="font-heading font-bold text-3xl lg:text-5xl text-dark mb-4">
           Why <span class="text-gradient-teal">Nyati Group</span>
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" data-reveal>
         <div class="text-center trust-seal p-8">
           <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
@@ -1382,27 +1426,60 @@
       });
     }
 
-    // Intersection Observer for scroll animations
+    // ─── Scroll Animations (Intersection Observer) ───
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.15,
+      rootMargin: '0px 0px -30px 0px',
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          const el = entry.target;
+          // Trigger animation
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0) translateX(0) scale(1)';
+          el.style.filter = 'blur(0)';
+          el.style.visibility = 'visible';
+
+          // Handle stagger children
+          const children = el.querySelectorAll('[data-stagger]');
+          children.forEach((child, i) => {
+            child.style.animationDelay = `${i * 0.1 + 0.2}s`;
+            child.classList.add('animate-slide-up');
+          });
+
+          revealObserver.unobserve(el);
         }
       });
     }, observerOptions);
 
-    // Observe all elements with animation classes
-    document.querySelectorAll('[class*="animate-"]').forEach(el => {
-      observer.observe(el);
+    // Observe all [data-reveal] elements
+    document.querySelectorAll('[data-reveal]').forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(40px)';
+      el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out, filter 0.8s ease-out';
+      el.style.filter = 'blur(4px)';
+      revealObserver.observe(el);
     });
 
-    // Counter animation
+    // Stagger children observation
+    document.querySelectorAll('[data-stagger]').forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    });
+
+    // ─── Parallax Scroll Effect ───
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      document.querySelectorAll('[data-parallax]').forEach((el) => {
+        const speed = parseFloat(el.getAttribute('data-parallax')) || 0.3;
+        el.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    }, { passive: true });
+
+    // ─── Counter Animation ───
     function animateCounter(el) {
       const target = parseInt(el.getAttribute('data-target'));
       if (!target) return;
@@ -1414,34 +1491,43 @@
       function update(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        // Ease out cubic
         const easeOut = 1 - Math.pow(1 - progress, 3);
         const current = Math.floor(start + (target - start) * easeOut);
-
         el.textContent = current.toLocaleString();
-
         if (progress < 1) {
           requestAnimationFrame(update);
         } else {
           el.textContent = target.toLocaleString();
         }
       }
-
       requestAnimationFrame(update);
     }
 
-    // Observe counters
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
 
-    document.querySelectorAll('.counter').forEach(el => {
+    document.querySelectorAll('.counter').forEach((el) => {
       counterObserver.observe(el);
+    });
+
+    // ─── Image lazy-load fade ───
+    document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+      img.style.transition = 'opacity 0.5s ease-in-out';
+      img.addEventListener('load', () => {
+        img.style.opacity = '1';
+      });
+      if (!img.complete) {
+        img.style.opacity = '0';
+      }
     });
   </script>
 </body>
